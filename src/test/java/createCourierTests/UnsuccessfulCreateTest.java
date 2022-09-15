@@ -3,6 +3,7 @@ package createCourierTests;
 import courier.Courier;
 import courier.CourierClient;
 import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,6 +41,7 @@ public class UnsuccessfulCreateTest {
     }
 
     @Description("Unsuccessful courier creation tests. Some necessary data is missing")
+    @DisplayName("Unsuccessful creation of the courier without login, password or firstname")
     @Test
     public void unsuccessfulCreateTest() {
         CourierClient courierClient = new CourierClient();

@@ -1,5 +1,6 @@
 package courier;
 
+import config.BaseClient;
 import io.restassured.response.ValidatableResponse;
 import testData.TestData;
 
@@ -19,15 +20,15 @@ public class CourierClient extends BaseClient {
         return getSpec()
                 .body(credentials)
                 .post(LOGIN)
-                .then().log().all();
+                .then();
     }
 
     public int getCourierId(CourierCredentials credentials) {
         return loginCourier(credentials)
                 .extract().path(testData.getID_PATH());
     }
-    public ValidatableResponse deleteCourier(int id) {
-        return getSpec()
+    public void deleteCourier(int id) {
+        getSpec()
                 .pathParam(testData.getID_PATH(), id)
                 .delete(DELETE)
                 .then();

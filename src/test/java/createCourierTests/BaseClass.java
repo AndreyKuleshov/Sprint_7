@@ -23,5 +23,4 @@ public class BaseClass {
         id = courierClient.getCourierId(CourierCredentials.from(courier));
         courierClient.deleteCourier(id);
     }
-
 }
